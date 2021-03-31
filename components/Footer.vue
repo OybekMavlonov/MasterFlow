@@ -3,7 +3,7 @@
     <v-container>
       <div class="footer-main">
         <v-row>
-          <v-col md="4">
+          <v-col cols="12" sm="4" md="4">
             <div class="logo">
               <img src="../assets/images/logo.svg" alt="logo" />
               <h1>Master Flow</h1>
@@ -92,12 +92,21 @@ export default {
 footer {
   padding: 40px 0 20px;
   background: #17154b !important;
+  @media (max-width: 600px) {
+    padding: 10px 0;
+  }
   .footer-main {
     padding-bottom: 30px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+    @media (max-width: 600px) {
+      padding-bottom: 10px;
+    }
     .logo {
       margin-bottom: 16px;
-
+      @include for-phone-only {
+        text-align: center;
+        margin-bottom: 0;
+      }
       h1 {
         font-family: Gilroy;
         font-style: normal;
@@ -107,17 +116,31 @@ footer {
         display: inline;
         margin-left: 8px;
         color: #ffffff;
+        @include for-tablet-portrait-up {
+        margin-left: 0;
+      }
+        
+        @media (max-width: 550px) {
+          font-size: 18px;
+          line-height: 20px;
+        }
       }
     }
     .number {
       color: #fff;
       font-size: 16px;
       @extend .text;
+      @include for-phone-only {
+        text-align: center;
+      }
     }
     .support {
       color: #fff;
       font-size: 14px;
       @extend .text;
+      @include for-phone-only {
+        text-align: center;
+      }
     }
 
     .menu {
@@ -125,6 +148,10 @@ footer {
       color: #fff;
       margin-bottom: 10px;
       @extend .text;
+      @media (max-width: 550px) {
+        margin-bottom: 4px;
+        font-size: 14px;
+      }
     }
     .menu-items {
       list-style-type: none;
@@ -150,6 +177,14 @@ footer {
     justify-content: space-between;
     align-items: center;
     margin-top: 30px;
+    @media (max-width: 550px) {
+      margin-top: 20px;
+    }
+    @media (max-width: 330px) {
+      display: block;
+      text-align: center;
+    }
+
     .social-logos {
       a {
         border-radius: 50%;
@@ -158,16 +193,38 @@ footer {
       }
       .fb {
         padding: 12px 15px 8px;
+        @media (max-width: 400px) {
+          padding: 6px 9px 3px;
+        }
+        img {
+          @media (max-width: 400px) {
+            width: 8px;
+            height: 14px;
+          }
+        }
       }
       .twitter,
       .instagram {
         padding: 12px 11px 8px;
+        @media (max-width: 400px) {
+          padding: 5px 5px 3px;
+        }
+        img {
+          @media (max-width: 400px) {
+            width: 14px;
+            height: 12px;
+          }
+        }
       }
     }
     .rights {
       color: #fff;
       font-size: 14px;
       @extend .text;
+      
+      @media (max-width: 330px) {
+      margin-top: 10px;
+    }
     }
   }
 }

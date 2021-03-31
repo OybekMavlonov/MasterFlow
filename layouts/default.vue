@@ -1,15 +1,13 @@
 <template>
   <v-app light>
     <v-navigation-drawer v-model="drawer" absolute temporary>
-      <div class="top d-flex align-center">
+      <div class="top">
         <router-link to="/">
-          <h2>Logo</h2>
+          <div class="logo d-flex justify-center">
+            <img src="../assets/images/logo.svg" alt="logo" />
+            <h1>Master Flow</h1>
+          </div>
         </router-link>
-        <v-spacer></v-spacer>
-        <v-btn text>
-          <!-- <v-img src="../src/assets/svg/login.svg" class="mr-2"></v-img> -->
-          <span class="mr-2">ВХОД</span>
-        </v-btn>
       </div>
       <v-list dense>
         <v-list-item
@@ -51,16 +49,18 @@
             <h1>Master Flow</h1>
           </div>
           <v-spacer></v-spacer>
-          <v-btn
-            text
-            v-for="item in items"
-            :key="item.title"
-            router
-            :to="item.to"
-            class="hidden-xs-only"
-          >
-            {{ item.title }}
-          </v-btn>
+          <div class="nav">
+            <v-btn
+              text
+              v-for="item in items"
+              :key="item.title"
+              router
+              :to="item.to"
+              class="hidden-xs-only"
+            >
+              {{ item.title }}
+            </v-btn>
+          </div>
           <v-spacer></v-spacer>
           <div class="loginarea hidden-xs-only">
             <v-btn text class="enter">
@@ -72,12 +72,8 @@
       </v-container>
     </v-app-bar>
     <v-main>
-      <!-- <v-container> -->
       <nuxt />
-      <!-- </v-container> -->
     </v-main>
-
-    
   </v-app>
 </template>
 
@@ -121,9 +117,26 @@ a {
 header {
   height: 90px !important;
   box-shadow: none !important;
+  @include for-phone-only {
+    height: 70px !important;
+  }
+  @media (max-width: 480px) {
+    height: 60px !important;
+  }
   .v-toolbar__content {
     height: 90px !important;
     padding: 15px 16px;
+    @include for-phone-only {
+      height: 70px !important;
+    }
+    @media (max-width: 480px) {
+      height: 60px !important;
+    }
+    .row {
+      @include for-tablet-landscape-up {
+        justify-content: space-between;
+      }
+    }
   }
   .logo {
     display: flex;
@@ -137,6 +150,15 @@ header {
       line-height: 31px;
       color: #0a083b;
       margin-left: 12px;
+      @include for-tablet-portrait-up {
+        margin-right: 2px;
+        font-size: 22px;
+      }
+    }
+  }
+  .spacer {
+    @include for-tablet-portrait-up {
+      display: none;
     }
   }
   .v-btn {
@@ -153,6 +175,12 @@ header {
     &:before {
       background: none !important;
     }
+    @include for-tablet-portrait-up {
+      padding: 0 10px !important;
+    }
+    @media (max-width: 640px) {
+      padding: 0px 2px !important;
+    }
   }
   .v-btn--active {
     color: #0a083b !important;
@@ -165,6 +193,26 @@ header {
       border: 1.4px solid #e5e5e5;
       box-sizing: border-box;
       @extend .button;
+    }
+  }
+}
+
+.v-navigation-drawer__content {
+  .top {
+    padding: 16px;
+
+    a {
+      .logo {
+        h1 {
+          font-family: Gilroy;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 22px;
+          line-height: 31px;
+          color: #0a083b;
+          margin-left: 6px;
+        }
+      }
     }
   }
 }

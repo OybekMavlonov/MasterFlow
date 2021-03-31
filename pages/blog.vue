@@ -3,7 +3,7 @@
     <div class="blog-main">
       <v-container>
         <v-row>
-          <v-col cols="12" sm="8" md="6">
+          <v-col cols="12" sm="12" md="6">
             <div class="left">
               <div class="bg">
                 <img
@@ -14,7 +14,7 @@
               </div>
             </div>
           </v-col>
-          <v-col cols="12" sm="8" md="6">
+          <v-col cols="12" sm="12" md="6">
             <div class="right">
               <h1>Your business in one platform.</h1>
               <p>
@@ -32,10 +32,7 @@
                     v-model="search"
                   />
                 </div>
-                <button
-                  href="#"
-                  class="started"
-                >
+                <button href="#" class="started">
                   Search
                 </button>
               </div>
@@ -45,10 +42,7 @@
       </v-container>
     </div>
 
-    <Subscribe
-      :title="blogTitle"
-      :button="blogButton"
-    ></Subscribe>
+    <Subscribe :title="blogTitle" :button="blogButton"></Subscribe>
 
     <Articles :searchedArticle="searchedArticle"></Articles>
 
@@ -104,7 +98,7 @@ export default {
         return article.title.toLowerCase().match(this.search.toLowerCase());
       });
     }
-  },
+  }
 };
 </script>
 
@@ -122,6 +116,18 @@ export default {
         background: #17154b;
         border-radius: 0px;
         position: relative;
+        @include for-desktop-up {
+          width: 440px;
+          height: 470px;
+        }
+        @include for-tablet-landscape-up {
+          width: 70%;
+          transform: translate(110px, 40px);
+        }
+        @include for-phone-only {
+          transform: translate(60px, 20px);
+          height: 380px;
+        }
 
         .home-img {
           width: 500px;
@@ -129,24 +135,65 @@ export default {
           transform: translate(40px, -40px);
           border-radius: 4px;
           box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.06);
+
+          @include for-desktop-up {
+            width: 440px;
+            height: 470px;
+          }
+          @include for-tablet-landscape-up {
+            width: 100%;
+          }
+          @include for-phone-only {
+          height: 380px;
+        }
         }
       }
     }
     .right {
       padding: 100px 48px 150px 48px;
+      @include for-desktop-up {
+        padding: 100px 10px 140px 30px;
+      }
+      @include for-tablet-landscape-up {
+        padding: 30px 80px;
+        text-align: center;
+      }
+      @include for-tablet-portrait-up {
+        padding: 30px 80px 0px;
+      }
+      @include for-phone-only {
+          padding: 20px 50px 0;
+        }
       h1 {
         font-size: 52px;
         line-height: 62px;
         @extend .title;
+        @include for-tablet-portrait-up {
+          font-size: 40px;
+          line-height: 50px;
+        }
+        @include for-phone-only {
+          font-size: 28px;
+          line-height: 38px;
+        }
       }
       p {
         line-height: 26px;
         margin: 18px 0 26px;
         @extend .text;
+        @include for-tablet-portrait-up {
+          margin: 14px 0 20px;
+        }
+        @include for-phone-only {
+          margin: 6px 0 14px;
+        }
       }
       .buttons {
         display: flex;
         justify-content: flex-start;
+        @include for-tablet-landscape-up {
+          justify-content: center;
+        }
         button {
           @extend .button;
         }
@@ -154,6 +201,9 @@ export default {
           background: #175cff;
           color: #fff;
           padding: 16px 50px;
+          @include for-tablet-portrait-up {
+            padding: 10px 30px !important;
+          }
         }
         .search-field {
           position: relative;
@@ -211,6 +261,9 @@ export default {
   .newsletter {
     background: #17154b;
     padding: 50px 0 0;
+    @include for-tablet-landscape-up {
+          padding-top: 20px;
+        }
     .blue-text {
       color: #fff;
     }
@@ -221,6 +274,9 @@ export default {
       justify-content: space-between;
       align-items: center;
       padding-bottom: 55px;
+       @include for-tablet-landscape-up {
+          padding-bottom: 30px;
+        }
 
       h1 {
         width: 50%;

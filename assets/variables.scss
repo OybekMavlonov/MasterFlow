@@ -18,6 +18,15 @@
   text-transform: uppercase;
   color: #175CFF;
   margin-bottom: 16px;
+
+  @media (max-width: 1264px) {
+    margin-bottom: 8px;
+    line-height: 10px;
+  }
+  @media (max-width: 500px) {
+    font-size: 12px;
+    line-height: 14px;
+  }
 }
 
 .title {
@@ -27,6 +36,20 @@
   font-size: 42px;
   line-height: 60px;
   color: #0A083B;
+
+  @media (max-width: 960px) {
+    font-size: 39px;
+    line-height: 50px;
+  }
+
+  @media (max-width: 780px) {
+    font-size: 36px;
+    line-height: 40px;
+  }
+  @media (max-width: 500px) {
+    font-size: 24px;
+    line-height: 28px;
+  }
 }
 
 .text {
@@ -36,6 +59,15 @@
   font-size: 18px;
   line-height: 32px;
   color: #57586e;
+
+  @media (max-width: 780px) {
+    font-size: 16px;
+    line-height: 27px;
+  }
+  @media (max-width: 500px) {
+    font-size: 14px;
+    line-height: 20px;
+  }
 }
 
 .button {
@@ -44,14 +76,19 @@
   text-decoration: none;
   font-style: normal;
   font-weight: 600;
-  line-height: 20px;
+  line-height: 22px;
   letter-spacing: 0px;
   text-align: center;
   padding: 14px 30px;
   display: block;
   text-decoration: none;
   border-radius: 30px;
-  
+
+  @media (max-width: 780px) {
+    padding: 10px 16px !important;
+    font-size: 14px;
+  }
+
   &:focus {
     outline: none;
   }
@@ -65,4 +102,35 @@
   line-height: 16px;
   text-align: center;
   letter-spacing: 2px;
+}
+
+
+@mixin for-phone-only {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin for-tablet-portrait-up {
+  @media (max-width: 780px) {
+    @content;
+  }
+}
+
+@mixin for-tablet-landscape-up {
+  @media (max-width: 960px) {
+    @content;
+  }
+}
+
+@mixin for-desktop-up {
+  @media (max-width: 1264px) {
+    @content;
+  }
+}
+
+@mixin for-big-desktop-up {
+  @media (min-width: 1441px) {
+    @content;
+  }
 }

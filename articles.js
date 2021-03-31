@@ -55,19 +55,19 @@ export const articles = [
   },
   {
     id: "10",
-    img: require("./assets/images/exp1.png"),
+    img: require("./assets/images/article1.png"),
     category: "Products",
     title: "All our physical products that we have branded and sold"
   },
   {
     id: "11",
-    img: require("./assets/images/exp2.png"),
+    img: require("./assets/images/article2.png"),
     category: "Marketing",
     title: "Our statistics in our latest developed ecommerce"
   },
   {
     id: "12",
-    img: require("./assets/images/exp3.png"),
+    img: require("./assets/images/article3.png"),
     category: "Strategy",
     title: "The strategy we use to reach your goal quickly"
   },
@@ -109,19 +109,19 @@ export const articles = [
   },
   {
     id: "19",
-    img: require("./assets/images/exp1.png"),
+    img: require("./assets/images/article1.png"),
     category: "Products",
     title: "All our physical products that we have branded and sold"
   },
   {
     id: "20",
-    img: require("./assets/images/exp2.png"),
+    img: require("./assets/images/article2.png"),
     category: "Marketing",
     title: "Our statistics in our latest developed ecommerce"
   },
   {
     id: "21",
-    img: require("./assets/images/exp3.png"),
+    img: require("./assets/images/article3.png"),
     category: "Strategy",
     title: "The strategy we use to reach your goal quickly"
   },
